@@ -1,0 +1,9 @@
+:root {
+  --background: 0 0% 10%; /* Koyu siyah arka plan */
+  --foreground: 100 0% 100%; /* Beyaz metin rengi */
+  --primary: 0 0% 20%; /* Daha açık siyah */
+  --card: 0 0% 15%; /* Açık siyah ödeme bilgileri tablosu */
+  --border: 0 0% 20%; /* Siyah sınır */
+  --muted: 0 0% 25%; /* Daha açık siyah */
+  --radius: 0.5rem; /* Köşe yuvarlama */
+}

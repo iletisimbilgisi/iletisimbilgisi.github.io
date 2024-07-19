@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ödeme Bilgileri</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ödeme Bilgileri</h1>
+        </header>
+
+        <main id="content">
+            <!-- İçerik burada yüklenecek -->
+        </main>
+
+        <footer>
+            <div class="contact">
+                <p>İletişim için <a href="https://wa.me/+905013312196" target="_blank">WhatsApp</a></p>
+                <p>İletişim için <a href="https://t.me/VALANCE1122" target="_blank">Telegram @VALANCE1122</a></p>
+                <p>Kredi veya Banka kartı ile 3D ödeme yapmak isterseniz canlı destek veya WhatsApp'tan iletişime geçin.</p>
+            </div>
+
+            <div class="support-button">
+                <button onclick="openLiveSupport()">Ödeme Yaptıysan Bildirmek için Canlı Desteğe Bağlan</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Sayfa yüklendiğinde içerikleri yükle
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('content.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content').innerHTML = data;
+                });
+        });
+    </script>
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/6699416932dca6db2cb1c217/1i33af10l';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+</body>
+</html>
