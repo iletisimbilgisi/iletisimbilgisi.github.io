@@ -3,113 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Başvuru Merkezi</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        h1 {
-            color: #007bff;
-        }
-        .card {
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .form-control {
-            border-radius: 10px;
-        }
-        .btn-primary {
-            border-radius: 10px;
-        }
-    </style>
+    <title>Başvuru Formu</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h1 class="text-center my-4">Başvuru Merkezi</h1>
-            <div class="card">
-                <div class="card-body">
-                    <form id="applicationForm" novalidate>
-                        <div class="form-group">
-                            <label for="name">Adı Soyadı:</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                            <div class="invalid-feedback">Lütfen adınızı girin.</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telefon Numarası:</label>
-                            <input type="tel" id="phone" name="phone" class="form-control" required pattern="^\d{10,15}$">
-                            <div class="invalid-feedback">Lütfen geçerli bir telefon numarası girin.</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="dob">Doğum Tarihi:</label>
-                            <input type="date" id="dob" name="dob" class="form-control" required>
-                            <div class="invalid-feedback">Lütfen doğum tarihinizi girin.</div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Gönder</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <div class="logo-wrapper">
+        <img src="turkcell.png" alt="Turkcell Logo">
     </div>
-</div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var name = localStorage.getItem('name');
-        if (name) {
-            document.getElementById('name').value = name;
-        }
-
-        var form = document.getElementById('applicationForm');
-
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            event.stopPropagation();
-
-            if (form.checkValidity() === false) {
-                form.classList.add('was-validated');
-            } else {
-                localStorage.setItem('name', document.getElementById('name').value);
-
-                var name = document.getElementById('name').value;
-                var phone = document.getElementById('phone').value;
-                var dob = document.getElementById('dob').value;
-
-                fetch('https://script.google.com/macros/s/AKfycbwG2VxFUpd36EJOYLfTt3FbIIw5_DIadby6EgVphSpnVUPO2pQgS6kw1-O9RLlVztUc/exec', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({name: name, phone: phone, dob: dob}),
-                    mode: 'cors' // CORS modunu açık bırakıyoruz
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result === 'success') {
-                        window.location.href = 'thankyou.html';
-                    } else {
-                        alert('Form gönderilemedi. Lütfen tekrar deneyin.');
-                    }
-                })
-                .catch(error => {
-                    console.error("Fetch hatası: ", error);
-                    alert('Bir hata oluştu. Lütfen tekrar deneyin.');
-                });
-            }
-        }, false);
-    });
-</script>
-
+    <div class="form-wrapper">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdbLef7Z7xOAOFo82n3fP7qXaesxRJ6iQJ_dUeYh6XZlTLQgA/viewform?embedded=true" width="640" height="721" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
+    </div>
 </body>
 </html>
