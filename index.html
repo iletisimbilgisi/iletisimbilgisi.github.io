@@ -86,16 +86,13 @@
                 var phone = document.getElementById('phone').value;
                 var dob = document.getElementById('dob').value;
 
-                var scriptURL = 'https://script.google.com/macros/s/AKfycbwG2VxFUpd36EJOYLfTt3FbIIw5_DIadby6EgVphSpnVUPO2pQgS6kw1-O9RLlVztUc/exec';
-
-                fetch(scriptURL, {
+                fetch('https://script.google.com/macros/s/AKfycbwG2VxFUpd36EJOYLfTt3FbIIw5_DIadby6EgVphSpnVUPO2pQgS6kw1-O9RLlVztUc/exec', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({name: name, phone: phone, dob: dob}),
-                    mode: 'cors'
+                    mode: 'cors' // CORS modunu açık bırakıyoruz
                 })
                 .then(response => response.json())
                 .then(data => {
@@ -105,8 +102,8 @@
                         alert('Form gönderilemedi. Lütfen tekrar deneyin.');
                     }
                 })
-                .catch((error) => {
-                    console.error('Error:', error);
+                .catch(error => {
+                    console.error("Fetch hatası: ", error);
                     alert('Bir hata oluştu. Lütfen tekrar deneyin.');
                 });
             }
