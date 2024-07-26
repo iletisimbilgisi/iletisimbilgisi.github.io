@@ -44,5 +44,26 @@
     <div class="form-wrapper">
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdbLef7Z7xOAOFo82n3fP7qXaesxRJ6iQJ_dUeYh6XZlTLQgA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
     </div>
+    <div id="visitor-counter" onclick="showVisitorDetails()">
+        Şu anda sitede X kişi var
+    </div>
+
+    <script>
+        function updateVisitorCount() {
+            fetch('https://example.com/api/visitor_count')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('visitor-counter').innerText = `Şu anda sitede ${data.count} kişi var`;
+                })
+                .catch(error => console.error('Hata:', error));
+        }
+
+        function showVisitorDetails() {
+            // Örnek: Burada detayları gösterecek fonksiyonu ekleyin.
+            alert('Buraya detaylar gösterilecek.');
+        }
+
+        setInterval(updateVisitorCount, 5000); // Her 5 saniyede bir günceller
+    </script>
 </body>
 </html>
