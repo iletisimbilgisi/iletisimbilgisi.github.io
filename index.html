@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Başvuru Formu</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,7 +11,17 @@
         <img src="turkcell.png" alt="Turkcell Logo">
     </div>
     <div class="form-wrapper">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdbLef7Z7xOAOFo82n3fP7qXaesxRJ6iQJ_dUeYh6XZlTLQgA/viewform?embedded=true" width="640" height="721" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
+        <iframe id="formFrame" src="https://docs.google.com/forms/d/e/1FAIpQLSdbLef7Z7xOAOFo82n3fP7qXaesxRJ6iQJ_dUeYh6XZlTLQgA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
     </div>
+    <script>
+        function resizeIframe() {
+            var iframe = document.getElementById('formFrame');
+            var height = window.innerHeight * 0.8; // Yüksekliği ekranın %80'i kadar yapar
+            iframe.style.height = height + 'px';
+        }
+
+        window.addEventListener('resize', resizeIframe);
+        window.addEventListener('load', resizeIframe);
+    </script>
 </body>
 </html>
