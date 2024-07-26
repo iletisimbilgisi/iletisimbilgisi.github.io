@@ -9,29 +9,27 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    overflow: hidden; /* Kaydırmayı engellemek için */
-    box-sizing: border-box; /* Padding ve border genişliği hesaplamalarına dahil edilir */
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 /* Logo ayarları */
 .logo-wrapper {
-    margin: 0;
-    padding: 0;
     text-align: center;
     width: 100%;
+    margin-bottom: 20px; /* Logonun form ile arasına boşluk ekler */
 }
 
 .logo-wrapper img {
     max-width: 90%; /* Logo genişliği ekranın %90'ı kadar olabilir */
     height: auto;
+    margin: 0 auto;
 }
 
 /* Form ayarları */
 .form-wrapper {
-    margin: 0;
-    padding: 0;
-    text-align: center;
     width: 100%;
+    max-width: 640px; /* Formun genişliğini sınırlayarak taşmasını engeller */
 }
 
 iframe {
@@ -39,5 +37,17 @@ iframe {
     height: 80vh; /* Ekranın %80'i kadar yüksekliğe sahip olacak */
     border: none;
     border-radius: 8px;
-    box-sizing: border-box; /* Padding ve border genişliği hesaplamalarına dahil edilir */
+    box-sizing: border-box;
+}
+
+/* Medya sorguları */
+@media (max-width: 768px) {
+    .form-wrapper {
+        max-width: 100%;
+        padding: 0 10px; /* Mobil ekranlarda biraz iç boşluk ekler */
+    }
+
+    iframe {
+        height: 70vh; /* Küçük ekranlarda iframe yüksekliğini biraz küçültür */
+    }
 }
